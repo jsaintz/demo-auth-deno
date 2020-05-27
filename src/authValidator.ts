@@ -12,13 +12,13 @@ const authValidator = async (ctx: Context, next: any) => {
     return;
   }
 
-  const jwt = authorization.split(' ')[1];
-  if (!jwt) {
+  const token = authorization.split(' ')[1];
+  if (!token) {
     ctx.response.status = 401;
     return;
   }
 
-  if (await validateJwt(jwt, key, { isThrowing: false })) {
+  if (await validateJwt(token, key, { isThrowing: false })) {
     await next();
     return;
   }
