@@ -24,14 +24,14 @@ export const login = async (ctx: Context) => {
         exp: setExpiration(new Date().getTime() + 60000),
       };
 
-      const jwt = makeJwt({ key, header, payload });
+      const token = makeJwt({ key, header, payload });
 
-      if (jwt) {
+      if (token) {
         ctx.response.status = 200;
         ctx.response.body = {
           id: user.id,
           username: user.username,
-          jwt,
+          token,
         };
       } else {
         ctx.response.status = 500;
