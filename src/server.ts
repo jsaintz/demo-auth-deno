@@ -1,6 +1,6 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-import { login, auth, guest } from "./routes.ts";
-import authValidator from './authValidator.ts';
+import { login, auth, guest } from "./controller/index.ts";
+import { authValidator } from './helper/index.ts';
 
 const router = new Router();
 
